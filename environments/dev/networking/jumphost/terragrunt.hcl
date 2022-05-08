@@ -1,0 +1,33 @@
+locals {
+#  global_vars      = yamldecode(file(find_in_parent_folders("global_vars.yaml")))
+  account_vars     = yamldecode(file(find_in_parent_folders("account_vars.yaml")))
+  environment_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
+}
+
+
+terraform {
+  source = "../../../../modules//networking/jumphost"
+}
+
+include {
+  path = find_in_parent_folders()
+}
+
+dependency "vpc" {
+  config_path = "../../networking/vpc"
+}
+
+dependency "subnet" {
+  config_path = "../../networking/subnet"
+}
+
+inputs = {
+
+  vpc_id = dependency.vpc.outputs.vpc_id
+#  instance_type =
+#  instance_profile =
+  subnet_id = dependency.subnet.outputs.public_subnet_id
+  sgs       = dependency.vpc.outputs.default_vpc_sg
+  resource_suffix = "${local.environment_vars.environment_name}-${local.account_vars.account_name}"
+  ami_filter = "amzn2-ami-hvm-2.0.20210219.0-x86_64-ebs*"
+}

@@ -1,5 +1,7 @@
 terragrunt_version_constraint = ">= v0.36.10"
 
+
+
 remote_state {
   backend = "s3"
 
@@ -22,4 +24,14 @@ remote_state {
     dynamodb_table = get_env("TEST_STATE_DYNAMODB_TABLE", "")
 
   }
+}
+
+generate "provider" {
+  path = "provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+provider "aws" {
+  region = "eu-west-2"
+}
+EOF
 }
