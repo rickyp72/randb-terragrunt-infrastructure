@@ -1,3 +1,9 @@
+locals {
+#  global_vars      = yamldecode(file(find_in_parent_folders("global_vars.yaml")))
+  account_vars     = yamldecode(file(find_in_parent_folders("account_vars.yaml")))
+  environment_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
+}
+
 terraform {
   source = "../../../../modules//networking/subnet"
 }
@@ -11,8 +17,6 @@ dependency "vpc" {
 }
 
 inputs = {
-
   vpc_id = dependency.vpc.outputs.vpc_id
-  # Set the username using the TF_VAR_db_username environment variable
-  # Set the password using the TF_VAR_db_password environment variable
+  environment_name = local.environment_vars.environment_name
 }
