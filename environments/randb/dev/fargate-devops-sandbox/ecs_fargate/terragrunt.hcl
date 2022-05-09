@@ -2,9 +2,8 @@ locals {
 
 }
 
-
 terraform {
-  source = "../../../../modules//vpc"
+  source = "../../../../../modules//ecs"
 }
 
 include {
@@ -13,5 +12,4 @@ include {
 
 
 inputs = {
-  cidr-block = "10.2.0.0/16"
 }

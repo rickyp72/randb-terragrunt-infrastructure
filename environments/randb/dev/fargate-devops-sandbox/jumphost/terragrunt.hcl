@@ -6,7 +6,7 @@ locals {
 
 
 terraform {
-  source = "../../../../modules//infrastructure_jumphost"
+  source = "../../../../../modules//infrastructure_jumphost"
 }
 
 include {
@@ -14,11 +14,11 @@ include {
 }
 
 dependency "vpc" {
-  config_path = "../../vpc"
+  config_path = "../vpc"
 }
 
 dependency "subnet" {
-  config_path = "../../subnet"
+  config_path = "../subnet"
 }
 
 inputs = {
