@@ -11,7 +11,7 @@ resource "aws_eip" "nat_eip" {
 resource "aws_route_table" "nat_route_table" {
   vpc_id = var.vpc_id
   tags = {
-    Name = "nat-route-table"
+    Name = "nat_route_table"
   }
 }
 # set the default route to the NAT Gateway
@@ -21,7 +21,7 @@ resource "aws_route" "nat_route" {
   nat_gateway_id         = aws_nat_gateway.nat.id
 }
 # Associate the NAT route table with private subnet
-resource "aws_route_table_association" "nat-rt-private-association" {
+resource "aws_route_table_association" "nat_rt_private_association" {
   subnet_id      = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.nat_route_table.id
 }

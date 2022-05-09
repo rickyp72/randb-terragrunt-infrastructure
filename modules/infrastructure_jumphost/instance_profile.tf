@@ -1,7 +1,7 @@
 resource "aws_iam_role" "jumpbox_instance_role" {
     count               = var.create_instance_profile == true ? 1 : 0
     description         = "Jumpbox instance role"
-    name                = "Jumbox-instance-role-${var.resource_suffix}"
+    name                = "Jumbox_instance_role_${var.resource_suffix}"
     assume_role_policy  = data.aws_iam_policy_document.jumphost_assume_role.json
 }
 

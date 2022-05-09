@@ -16,7 +16,7 @@ dependency "vpc" {
 }
 
 inputs = {
-  public-cidr-block = "10.2.10.0/24"
-  private-cidr-block = "10.2.50.0/24"
+  public_cidr_block = "10.2.10.0/24"
+  private_cidr_block = "10.2.50.0/24"
   vpc_id = dependency.vpc.outputs.vpc_id
 }

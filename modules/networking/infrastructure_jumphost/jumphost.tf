@@ -10,7 +10,7 @@ module "jumphost" {
 
 # Jumphost
 resource "aws_security_group" "jumphost" {
-  name        = "jumphost-${var.resource_suffix}"
+  name        = "jumphost_${var.resource_suffix}"
   description = "Jumphost"
   vpc_id      = var.vpc_id
 
@@ -20,7 +20,7 @@ resource "aws_security_group" "jumphost" {
   }
 }
 
-resource "aws_security_group_rule" "jumphost-egress" {
+resource "aws_security_group_rule" "jumphost_egress" {
   security_group_id = aws_security_group.jumphost.id
   type              = "egress"
   from_port         = 0

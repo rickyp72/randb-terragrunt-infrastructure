@@ -7,7 +7,7 @@ locals {
 
 
 #terraform {
-#  source = "../../../constructs//fargate-devops-sandbox"
+#  source = "../../../constructs//fargate_devops_sandbox"
 #}
 
 #include {
@@ -23,15 +23,15 @@ locals {
 #}
 
 inputs = {
-#  ecr-repo-name = "ecs-fargate-sandbox"
-#  cidr-block = "10.2.0.0/16"
+#  ecr_repo_name = "ecs_fargate_sandbox"
+#  cidr_block = "10.2.0.0/16"
 #  vpc_id = dependency.vpc.outputs.vpc_id
 #  instance_type =
 #  instance_profile =
 #  subnet_id = dependency.subnet.outputs.public_subnet_id
 #  private_subnet_ids = dependency.subnet.outputs.private_subnets
 ##  sgs       = dependency.vpc.outputs.default_vpc_sg
-  resource_suffix = "${local.construct_name}-${local.account_vars.account_name}-${local.environment_vars.environment_name}"
-#  ami_filter = "amzn2-ami-hvm-2.0.20220218.1-x86_64-ebs*"
+  resource_suffix = "${local.construct_name}_${local.account_vars.account_name}_${local.environment_vars.environment_name}"
+#  ami_filter = "amzn2_ami_hvm_2.0.20220218.1_x86_64_ebs*"
 #  create_instance_profile = true
 }

@@ -13,7 +13,7 @@ resource "aws_instance" "jumphost" {
   }
 
   tags = {
-    Name = "Jumphost-${var.resource_suffix}"
+    Name = "Jumphost_${var.resource_suffix}"
   }
 }
 

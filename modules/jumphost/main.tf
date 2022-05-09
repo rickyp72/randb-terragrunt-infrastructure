@@ -13,7 +13,7 @@ resource "aws_instance" "jumphost" {
   }
 
   tags = {
-    Name = "Jumphost-${var.resource_suffix}"
+    Name = "Jumphost_${var.resource_suffix}"
   }
 }
 
@@ -22,7 +22,7 @@ data "aws_ami" "amazon" {
 
   filter {
     name   = "name"
-    values = [var.ami_filter]
+    values = [var.ami-filter]
   }
 
   owners = ["amazon"]
