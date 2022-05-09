@@ -4,7 +4,7 @@ module "jumphost" {
   subnet_id        = var.private_subnet_ids[0]
   sgs              = [aws_security_group.jumphost.id]
   resource_suffix  = var.resource_suffix
-  ami-filter       = var.ami-filter
+  ami_filter       = var.ami_filter
   instance_profile = var.create_instance_profile == true ? aws_iam_instance_profile.jumphost[0].id : null
 }
 

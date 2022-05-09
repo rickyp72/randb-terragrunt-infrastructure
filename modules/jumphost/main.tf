@@ -22,7 +22,7 @@ data "aws_ami" "amazon" {
 
   filter {
     name   = "name"
-    values = [var.ami-filter]
+    values = [var.ami_filter]
   }
 
   owners = ["amazon"]

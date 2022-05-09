@@ -7,7 +7,7 @@ variable "resource_suffix" {
 variable "private_subnet_ids" {
   type = list(string)
 }
-variable "ami-filter" {
+variable "ami_filter" {
   type = string
 }
 # Looks like the original instance profile was created manually, so make this switchable
