@@ -1,6 +1,8 @@
+variable "vpc_cidr_block" {}
+
 variable "aws_region" {
   description = "The AWS region things are created in"
-  default     = "us_west_2"
+  default     = "eu-west-2"
 }
 
 variable "ecs_task_execution_role_name" {

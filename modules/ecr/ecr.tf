@@ -1,3 +1,3 @@
-resource "aws_ecr_repository" "ecr_repo" {
+resource "aws_ecr_repository" "repo" {
   name = "${var.resource_suffix}_ecr_repo"
 }
