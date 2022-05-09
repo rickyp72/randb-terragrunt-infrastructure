@@ -30,6 +30,6 @@ inputs = {
   private_subnet_ids = dependency.subnet.outputs.private_subnets
 #  sgs       = dependency.vpc.outputs.default_vpc_sg
   resource_suffix = "${local.environment_vars.environment_name}-${local.account_vars.account_name}"
-  ami_filter = "amzn2-ami-hvm-2.0.20210219.0-x86_64-ebs*"
+  ami_filter = "amzn2-ami-hvm-2.0.20220218.1-x86_64-ebs*"
   create_instance_profile = true
 }
