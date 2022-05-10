@@ -1,6 +1,6 @@
 [
   {
-    "name": "myapp",
+    "name": "fargate_devops_sandbox_randb_dev_app",
     "image": "${app_image}",
     "cpu": ${fargate_cpu},
     "memory": ${fargate_memory},

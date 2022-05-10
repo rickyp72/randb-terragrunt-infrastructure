@@ -3,7 +3,7 @@ locals {
 }
 
 terraform {
-  source = "../../../../../modules//ecs"
+  source = "../../../../../modules//ecs_fargate_cluster"
 }
 
 include {

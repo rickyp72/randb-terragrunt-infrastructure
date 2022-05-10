@@ -22,7 +22,7 @@ variable "app_image" {
 
 variable "app_port" {
   description = "Port exposed by the docker image to redirect traffic to"
-  default     = 80
+  default     = 8080
 }
 
 variable "app_count" {
@@ -43,3 +43,5 @@ variable "fargate_memory" {
   description = "Fargate instance memory to provision (in MiB)"
   default     = "2048"
 }
+
+variable "resource_suffix" {}
