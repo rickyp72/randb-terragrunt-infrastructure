@@ -31,7 +31,9 @@ inputs = {
 #  subnet_id = dependency.subnet.outputs.public_subnet_id
 #  private_subnet_ids = dependency.subnet.outputs.private_subnets
 ##  sgs       = dependency.vpc.outputs.default_vpc_sg
-  resource_suffix = "${local.construct_name}_${local.account_vars.account_name}_${local.environment_vars.environment_name}"
+#  resource_suffix = "${local.construct_name}_${local.account_vars.account_name}_${local.environment_vars.environment_name}"
 #  ami_filter = "amzn2_ami_hvm_2.0.20220218.1_x86_64_ebs*"
+  resource_suffix = "${local.construct_name}_${local.account_vars.account_name}"
+#  resource_suffix = "fargate_devops_sandbox_randb_dev"
 #  create_instance_profile = true
 }

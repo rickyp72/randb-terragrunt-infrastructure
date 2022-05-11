@@ -1,7 +1,7 @@
-locals {
-  randb-management_ac_number        = 245879739180
-  randb-dev_ac_number = 487005335896
-}
+#locals {
+#  randb-management_ac_number        = 245879739180
+#  randb-dev_ac_number = 487005335896
+#}
 
 #resource "aws_iam_account_password_policy" "this" {
 #  max_password_age               = var.max_password_age
