@@ -1,10 +1,15 @@
 Dev environment 
 
-from dev root folder run to see all resources in dev 
-`aws-profile -p randb-rickyp72 terragrunt run-all plan`
+create a file in environment root call
+environment_vars.yaml
+```
+account_name: <accountname>
+account_number: <54354543534543>
+```
 
-controlled order of build:
-- vpc
-- subnet
-- jumpbox
--
+
+from dev root folder run to see all resources in dev 
+`aws-profile -p <target env> terragrunt run-all plan`
+
+
+
