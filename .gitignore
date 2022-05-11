@@ -4,3 +4,4 @@ venv
 .terragrunt-cache
 .venv
 .terraform
+*.yaml
