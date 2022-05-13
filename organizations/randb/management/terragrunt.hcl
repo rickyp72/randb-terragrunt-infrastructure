@@ -1,5 +1,9 @@
 terragrunt_version_constraint = ">= v0.36.10"
 
+locals {
+  account_vars = yamldecode(file(find_in_parent_folders("account_vars.yaml")))
+}
+
 remote_state {
   backend = "s3"
   generate = {
@@ -21,6 +25,7 @@ generate "provider" {
   contents = <<EOF
 provider "aws" {
   region = "eu-west-2"
+  allowed_account_ids = ["${local.account_vars.account_number}"]
 }
 EOF
 }
