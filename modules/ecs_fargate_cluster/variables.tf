@@ -44,4 +44,6 @@ variable "fargate_memory" {
   default     = "2048"
 }
 
-variable "resource_suffix" {}
+variable "resource_suffix" {
+  default = "container_name"
+}

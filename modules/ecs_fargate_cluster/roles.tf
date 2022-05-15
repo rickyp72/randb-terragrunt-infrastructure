@@ -30,7 +30,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
 data "aws_iam_policy_document" "ecs_task_role" {
   version = "2012-10-17"
   statement {
-    sid = ""
+    sid = "EcsTaskRole"
     effect = "Allow"
     actions = ["sts:AssumeRole"]
 
@@ -39,6 +39,28 @@ data "aws_iam_policy_document" "ecs_task_role" {
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }
+}
+
+
+resource "aws_iam_policy" "ecs_task_policy" {
+  name        = "ecs_task_policy"
+  path        = "/"
+  description = "My test policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
 }
 
 # ECS task execution role
@@ -50,5 +72,5 @@ resource "aws_iam_role" "ecs_task_role" {
 # ECS task execution role policy attachment
 resource "aws_iam_role_policy_attachment" "ecs_task_role" {
   role       = aws_iam_role.ecs_task_role.name
-  policy_arn = ""
+  policy_arn = aws_iam_policy.ecs_task_policy.arn
 }

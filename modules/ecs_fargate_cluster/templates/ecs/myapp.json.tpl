@@ -1,6 +1,6 @@
 [
   {
-    "name": "fargate_devops_sandbox_randb_dev_app",
+    "name": "${resource_suffix}",
     "image": "${app_image}",
     "cpu": ${fargate_cpu},
     "memory": ${fargate_memory},
@@ -8,7 +8,7 @@
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/myapp",
+          "awslogs-group": "/ecs/${resource_suffix}",
           "awslogs-region": "${aws_region}",
           "awslogs-stream-prefix": "ecs"
         }

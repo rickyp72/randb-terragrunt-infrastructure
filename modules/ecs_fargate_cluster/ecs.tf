@@ -13,6 +13,7 @@ data "template_file" "myapp" {
     fargate_cpu    = var.fargate_cpu
     fargate_memory = var.fargate_memory
     aws_region     = var.aws_region
+    resource_suffix = var.resource_suffix
   }
 }
 
@@ -41,7 +42,8 @@ resource "aws_ecs_service" "main" {
 
   load_balancer {
     target_group_arn = aws_alb_target_group.app.id
-    container_name   = "${var.resource_suffix}_app"
+#    container_name   = "${var.resource_suffix}_app"
+    container_name   = "${var.resource_suffix}"
     container_port   = var.app_port
   }
 

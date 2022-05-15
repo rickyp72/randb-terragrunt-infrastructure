@@ -11,7 +11,7 @@ remote_state {
     if_exists = "overwrite"
   }
   config = {
-    bucket         = get_env("TEST_STATE_S3_BUCKET", "randb-dev-tfstate")
+    bucket         = get_env("TEST_STATE_S3_BUCKET", "${local.account_vars.tfstate_bucket}")
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = get_env("TEST_STATE_REGION", "eu-west-2")
     encrypt        = true
