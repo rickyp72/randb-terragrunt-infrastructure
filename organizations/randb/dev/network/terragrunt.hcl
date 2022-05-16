@@ -10,9 +10,9 @@ locals {
 #  source = "../../../constructs//fargate_devops_sandbox"
 #}
 
-#include {
-#  path = find_in_parent_folders()
-#}
+include {
+  path = find_in_parent_folders()
+}
 
 #dependency "vpc" {
 #  config_path = "../../vpc"
