@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. This project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## v1.1.8 - _2022-07_15  
+  
+See [v1.1.8] changes  
+  
+### Changed  
+- release functionality  
+- Features:  
+  - add release features  
+  
+[v1.1.8]: https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/v1.1.7...HEAD
+
+## v1.1.7 - _2022-07_15  
+  
+See [v1.1.7] changes  
+  
+### Changed  
+- release functionality  
+- Features:  
+  - add release features  
+  
+[v1.1.7]: https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/v1.1.6...HEAD
+
 ## v1.1.6 - _2022-07_15
 
 See [v1.1.6] changes
