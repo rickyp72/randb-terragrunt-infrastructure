@@ -181,7 +181,7 @@ release:
 	@git push origin ${version}
 	@python generate_latest_changelog
 	@gh release create ${version} -F latest_release_changelog.md
-	@rm -rf latest_release_changelog.md
+#	@rm -rf latest_release_changelog.md
 
 precommit: 		## Python precommit checks (lint, security, tests)
 	@$(MAKE) lint
