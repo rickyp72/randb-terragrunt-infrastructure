@@ -122,3 +122,17 @@ See [v1.1.17] changes
   - add release features  
   
 [v1.1.16](https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/v1.1.16...HEAD)
+
+## v1.1.18 - _2022-08_25  
+  
+See [v1.1.18] changes  
+
+### Added
+- stuff
+
+### Changed  
+- release functionality  
+- Features:  
+  - add release features  
+  
+[v1.1.17](https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/v1.1.17...HEAD)
