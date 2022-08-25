@@ -24,35 +24,7 @@ containers:
 #      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
 #      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
 #      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
-  playwright-image:
-    build_directory: .
-    dockerfile: PlaywrightDockerfile
-    # image: mcr.microsoft.com/playwright:focal
-    working_directory: /app
-    build_args:
-      commit_sha: ${GITHUB_SHA:-unknown}
-      version: ${GITHUB_REF_NAME:-unknown}
-    run_as_current_user:
-      enabled: true
-      home_directory: /home/batect-container-user
-    volumes:
-      - local: .
-        container: /app
-    environment:
-      AWS_ACCOUNT: ${AWS_ACCOUNT}
-      AWS_REGION: ${AWS_REGION}
-      AWS_DEFAULT_REGION: ${AWS_REGION}
-      COGNITO_USER_POOL_ID: ${COGNITO_USER_POOL_ID}
-      DATA_BUCKET: ${DATA_BUCKET}
-      QUERY_BUCKET: ${QUERY_BUCKET}
-      KMS_KEY: ${KMS_KEY}
-      DATABASE: ${DATABASE}
-      DOMAIN_NAME: ${DOMAIN_NAME}
-      RESOURCE_PREFIX: ${RESOURCE_PREFIX}
-      # Optional use when working locally
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
-      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+
 
 tasks:
   runtime-environment:
@@ -71,50 +43,6 @@ tasks:
     run:
       container: service-image
       command: bash
-  
-
-  run-app:
-    description: Run the app locally
-    run:
-      container: service-image
-      ports:
-        - local: 8000
-          container: 8000
-
-  run-local-dev:
-    description: Run the app locally in dev mode
-    run:
-      container: service-image
-      ports:
-        - local: 8000
-          container: 8000
-      command: "uvicorn api.entry:app --host 0.0.0.0 --port 8000 --reload"
-
-  test-unit:
-    description: Run unit tests
-    run:
-      container: service-image
-      command: "pytest test/api -v"
-
-  test-e2e:
-    description: Run e2e tests
-    run:
-      container: service-image
-      command: "pytest test/e2e -v"
-    
-  playwright-headless-journey:
-    description: Run e2e tests with playwright headless
-    dependencies:
-      - service-image
-    run:
-      container: playwright-image
-      command: python3 test/e2e/playwright-headless-user-journey.py -v
-
-  test-coverage:
-    description: Run all tests with coverage report for source code only
-    run:
-      container: service-image
-      command: "pytest --durations=5 --cov=api --cov-report term-missing test/api"
 
   detect-secrets:
     description: Detect tracked files for secrets
@@ -132,13 +60,13 @@ tasks:
     description: Detect common vulnerabilities
     run:
       container: service-image
-      command: "bandit -qr api"
+      command: "bandit -qr modules"
 
   lint:
     description: Lint the source and test code
     run:
       container: service-image
-      command: "flake8 api test"
+      command: "flake8 modules organizations"
 
   generate_latest_changelog:
     description: Parse the changelog file for the release's changes
