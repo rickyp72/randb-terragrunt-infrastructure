@@ -1,6 +1,6 @@
 ## vX.X.X - _YYYY-MM-DD_
 
-See [vX.X.X] changes
+See [vX.X.X](changes)
 
 ### Fixed
 
@@ -14,4 +14,4 @@ See [vX.X.X] changes
 
 ### Security
 
-[vX.X.X]: https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/<previous_version>...HEAD
+[vX.X.X](https://github.com/rickyp72/randb-terragrunt-infrastructure/compare/<previous_version>...HEAD)
