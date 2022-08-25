@@ -179,9 +179,9 @@ release:
 	@git tag -a "${version}" -m "Release tag for version ${version}"
 	@git checkout -
 	@git push origin ${version}
-	@python get_latest_release_changelog.py
+	@python generate_latest_changelog
 	@gh release create ${version} -F latest_release_changelog.md
-    @rm -rf latest_release_changelog.md
+	@rm -rf latest_release_changelog.md
 
 precommit: 		## Python precommit checks (lint, security, tests)
 	@$(MAKE) lint
