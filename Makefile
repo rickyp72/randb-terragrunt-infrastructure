@@ -179,7 +179,7 @@ release:
 	@git tag -a "${version}" -m "Release tag for version ${version}"
 	@git checkout -
 	@git push origin ${version}
-	@python generate_latest_changelog
+	@python get_latest_release_changelog.py
 	@gh release create ${version} -F latest_release_changelog.md
 #	@rm -rf latest_release_changelog.md
 
