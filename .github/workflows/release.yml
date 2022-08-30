@@ -1,17 +1,40 @@
-name: Release
+name: Deploy App test
+
+env:
+  DOCKER_BUILDKIT: 1
 
 on:
   push:
+    branches:
+      - temp
+      - develop
+      - main
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
 
+permissions:
+  packages: write
+  repository-projects: read
+  id-token: write
+  contents: read
+
+
 jobs:
-  release:
+  push_images:
     runs-on: ubuntu-latest
+
+    env:
+      IMAGE_TAG: ${{ github.ref_name }}
+
     steps:
-      - name: Create GitHub release
-        uses: Roang-zero1/github-create-release-action@v2
-        with:
-          version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+
+      - name: Setup prod api url
+        if:  ${{ github.ref_name == 'main' }}
+        run: echo "NEXT_PUBLIC_API_URL=https://ellandi-api.london.cloudapps.digital" >> $GITHUB_ENV
+
+      - name: Build, tag, and push ${{ matrix.app }} image
+
+        run: |
+          echo ${{ github.ref_name }}
+          echo ${{ env.IMAGE_TAG }}
