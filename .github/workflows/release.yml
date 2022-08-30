@@ -36,7 +36,7 @@ jobs:
             {
               "temp": {"CF_SPACE": "temp"},
               "develop": {"CF_SPACE": "develop"},
-              "v?.?.?": {"CF_SPACE": "prod"},
+              "v?.?.3": {"CF_SPACE": "prod"},
               "feature/deploy-from-main": {"CF_SPACE": "flibble"}
             }
 
