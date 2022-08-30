@@ -38,3 +38,4 @@ jobs:
         run: |
           echo ${{ github.ref_name }}
           echo ${{ env.IMAGE_TAG }}
+          echo $NEXT_PUBLIC_API_URL
