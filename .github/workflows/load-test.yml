@@ -17,5 +17,5 @@ jobs:
 
       - name: Execute load tests
         run: |
-          ls /home/node/artillery/bin/artillery
+          which artillery
           artillery run tests/performance/socket-io.yml
