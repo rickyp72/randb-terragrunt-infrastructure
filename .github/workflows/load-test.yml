@@ -16,4 +16,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute load tests
-        run: /home/node/artillery/bin/artillery run tests/performance/socket-io.yml
+        run: |
+          ls /home/node/artillery/bin/artillery
+          artillery run tests/performance/socket-io.yml
