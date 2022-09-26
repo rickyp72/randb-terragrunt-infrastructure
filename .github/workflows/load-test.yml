@@ -9,12 +9,12 @@ jobs:
   artillery:
     runs-on: ubuntu-latest
 
-    container: artilleryio/artillery:latest
+    # container: artilleryio/artillery:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Execute load tests
-        run: ls /home/node/
+        run: apt-get update -y 
         # run:  run tests/socket-io.yml
