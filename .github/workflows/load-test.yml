@@ -3,7 +3,7 @@ name: Artillery Socket.IO Load Test
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   artillery:
