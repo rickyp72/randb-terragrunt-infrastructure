@@ -16,5 +16,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute load tests
-        run: ls /
+        run: ls /home/
         # run:  run tests/socket-io.yml
