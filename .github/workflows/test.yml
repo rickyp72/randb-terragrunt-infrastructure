@@ -4,7 +4,7 @@ name: Collect GITHUB Variables
 on:
   push:
     branches:
-      - master
+      - test
 
 jobs:
   Test_Variables:
