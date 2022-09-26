@@ -16,5 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute load tests
-        run: apt-get update -y 
-        # run:  run tests/socket-io.yml
+        uses: kenju/github-actions-artillery@master
+        with:
+          filepath: tests/socket-io.yml
+
