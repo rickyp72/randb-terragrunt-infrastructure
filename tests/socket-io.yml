@@ -1,5 +1,5 @@
 config:
-  target: "http://lab.artillery.io"
+  target: "https://ellandi-sandbox.london.cloudapps.digital"
   phases:
     - duration: 600
       arrivalRate: 50
