@@ -42,7 +42,7 @@ jobs:
 
       - name: Setup prod api url
         if:  ${{ github.event_name == 'release' }}
-        run: echo "NEXT_PUBLIC_API_URL=https://ellandi-api.london.cloudapps.digital" >> $GITHUB_ENV
+        run: echo "NEXT_PUBLIC_API_URL=https://" >> $GITHUB_ENV
 
       - name: Build, tag, and push ${{ matrix.app }} image
 
