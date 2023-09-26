@@ -1,7 +1,7 @@
 terragrunt_version_constraint = ">= v0.36.10"
 
 locals {
-  account_vars = yamldecode(file(find_in_parent_folders("account_vars.yaml")))
+  account_vars = yamldecode(file("account_vars.yaml"))
 }
 
 remote_state {
