@@ -1,5 +1,5 @@
 config:
-  target: "https://ellandi-sandbox.london.cloudapps.digital"
+  target: "https://"
   phases:
     - duration: 600
       arrivalRate: 50
