@@ -11,3 +11,10 @@ resource "aws_iam_role" "infrastructure_engineer" {
 #  role       = aws_iam_role.infrastructure_engineer.name
 #  policy_arn = aws_iam_policy.apply_terraform.arn
 #}
+
+resource "aws_iam_policy_attachment" "attach_administrator_access" {
+  name       = "AdministratorAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"  # ARN of the AdministratorAccess policy
+
+  roles = [aws_iam_role.infrastructure_engineer.name]
+}
