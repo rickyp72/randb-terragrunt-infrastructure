@@ -5,3 +5,4 @@ venv
 .venv
 .terraform
 *.yaml
+*.zip
