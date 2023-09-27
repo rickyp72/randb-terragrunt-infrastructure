@@ -4,7 +4,6 @@ locals {
   environment_vars = yamldecode(file(find_in_parent_folders("environment_vars.yaml")))
 }
 
-
 terraform {
   source = "../../../../modules//lambda"
 }
@@ -17,5 +16,5 @@ inputs = {
   layer_name          = "awswranglerlayer340py310TF"
   filename            = "awswrangler-layer-3.4.0-py3.10.zip"
   compatible_runtimes = ["python3.10"]
-  description         = "An example Lambda Layer"
+  description         = "AWS Data Wrangler lambda layer"
 }
