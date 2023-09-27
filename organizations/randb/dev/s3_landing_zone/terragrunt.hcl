@@ -13,7 +13,7 @@ include {
 }
 
 inputs = {
-  bucket_name = "${local.construct_name}-${local.account_vars.account_name}-dataeng-landing-zone"
+  bucket_name = "dataeng-landing-zone-${local.construct_name}-${local.account_vars.account_name}"
   tags = {
     Owner       = "Ricky"
     Environment = "randb-dev"

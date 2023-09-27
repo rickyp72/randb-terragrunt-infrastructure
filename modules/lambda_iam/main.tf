@@ -1,26 +1,48 @@
-resource "aws_iam_policy" "lamdba_cloudwatch_policy" {
+#resource "aws_iam_policy" "lambda_s3_policy" {
+#  description = "Allow lambda to use cloudwatch"
+#  policy = jsonencode({
+#    Version = "2012-10-17",
+#    Statement = [
+#      {
+#        Effect   = "Allow",
+#        Action   = [
+#          "s3:*"
+#        ],
+#        Resource = var.s3_buckets
+#      }
+#    ]
+#  })
+#}
+
+resource "aws_iam_policy" "lambda_s3_policy" {
+  description = "Allow lambda to interact with specified S3 buckets"
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = ["s3:*"],
+#        Resource = [for bucket in var.bucket_names : format("arn:aws:s3:::%s/*", bucket)]
+        Resource = flatten([for bucket in var.bucket_names : [format("arn:aws:s3:::%s", bucket), format("arn:aws:s3:::%s/*", bucket)]])
+      }
+    ]
+  })
+}
+
+
+resource "aws_iam_policy" "lambda_cloudwatch_policy" {
   description = "Allow lambda to use cloudwatch"
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
         Effect   = "Allow",
-        Action   = var.allowed_cloudwatch_actions,
-        Resource = var.resource_arn
-      }
-    ]
-  })
-}
-
-resource "aws_iam_policy" "lamdba_other_policy" {
-  description = var.policy_description
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect   = "Allow",
-        Action   = var.allowed_actions,
-        Resource = var.resource_arn
+        Action   = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Resource = "arn:aws:logs:*:*:*"
       }
     ]
   })
