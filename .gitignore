@@ -6,3 +6,4 @@ venv
 .terraform
 *.yaml
 *.zip
+*.lock.hcl
