@@ -23,7 +23,7 @@ inputs = {
   description         = "AWS Data Wrangler lambda layer"
 
   function_name    = "CSVtoParquetLambda"
-  handler          = "index.handler"
+  handler          = "CSVtoParquetLambda.lambda_handler"
   runtime          = "python3.10"
   role_arn         = dependency.lambda_role.outputs.DataEngLambdaS3CWGlueRole_arn
   lambda_zip_file  = "CSVtoParquetLambda.py.zip"
