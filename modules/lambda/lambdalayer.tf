@@ -10,9 +10,4 @@ resource "aws_lambda_layer_version" "lambda_layer" {
   description         = var.description
 }
 
-variable "layer_name" {}
-variable "filename" {}
-variable "compatible_runtimes" {
-  type = list(string)
-}
-variable "description" {}
+
